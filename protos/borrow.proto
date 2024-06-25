@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "genprotos/";
+
+package protos;
+import "user.proto";
+import "car.proto";
+
+service BorrowService {
+    rpc Create(Borrow) returns (Void) {}
+    rpc Delete(ById) returns (Void) {}
+    rpc Update(Borrow) returns(Void){}
+    rpc GetById(ById) returns (Borrow) {}
+    rpc GetAll(Borrow) returns (GetAllBorrows){}
+}
+
+message Borrow {
+    User   user_id     = 1;
+    Car    car_id      = 2;
+    string borrow_date = 3;
+    string return_date = 4;
+}
+
+message GetAllBorrows {
+    repeated Borrow Borrows =1;
+}

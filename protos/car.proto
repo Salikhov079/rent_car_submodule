@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option go_package = "genprotos/";
+
+package protos;
+import "user.proto";
+
+service CarService {
+    rpc Create(Car) returns (Void) {}
+    rpc Delete(ById) returns (Void) {}
+    rpc Update(Car) returns(Void){}
+    rpc GetById(ById) returns (Car) {}
+    rpc GetAll(Car) returns (GetAllCars){}
+}
+
+message Car {
+    string id       = 1;
+    string model    = 2;
+    string year     = 3;
+    string color    = 4;
+    int64  mileage  = 5;
+    string type     = 6;
+    string type_oil = 7;
+    int32  amount   = 8;
+    User   user     = 9;
+    string status   = 10;
+}
+
+message GetAllCars {
+    repeated Car Cars =1;
+}
