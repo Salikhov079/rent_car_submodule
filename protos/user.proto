@@ -10,6 +10,7 @@ service UserService {
     rpc Update(User) returns(Void){}
     rpc GetById(ById) returns (User) {}
     rpc GetAll(User) returns (GetAllUsers){}
+    rpc Login(User) returns (User) {}
 }
 
 message ById {
